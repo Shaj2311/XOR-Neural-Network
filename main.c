@@ -200,6 +200,30 @@ int main()
 		}
 
 		//apply correction
+		//output layer
+		for(int i = 0; i < NUM_OUTPUTS; i++)
+		{
+			//adjust biases
+			OUTPUT_BIASES[i] -= LEARNING_RATE * OUTPUT_ERRORS[i];
+			//adjust weights
+			for(int j = 0; j < NUM_HIDDEN; j++)
+			{
+				OUTPUT_WEIGHTS[j][i] -= LEARNING_RATE * (OUTPUT_ERRORS[i] * OUTPUT_WEIGHTS[j][i]);
+			}
+		}
+
+		//hidden layer
+		for(int i = 0; i < NUM_HIDDEN; i++)
+		{
+			//adjust biases
+			HIDDEN_BIASES[i] -= LEARNING_RATE * HIDDEN_ERRORS[i];
+			//adjust weights
+			for(int j = 0; j < NUM_INPUTS; j++)
+			{
+				HIDDEN_WEIGHTS[j][i] -= LEARNING_RATE * (HIDDEN_ERRORS[i] * HIDDEN_WEIGHTS[j][i]);
+			}
+		}
+
 	}
 	return 0;
 }
