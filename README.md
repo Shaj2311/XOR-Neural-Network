@@ -4,6 +4,7 @@ A simple neural network that predicts XOR (most of the time :) ), written in C
 Here is a quick overview of the network's structure and workings:
 | Property          | Description                   |
 | ----------------- | ----------------------------- |
+| Hidden Layers     | 2                             |
 | Input Neurons     | 2                             |
 | Hidden Neurons    | 2                             |
 | Output Neurons    | 1                             |
