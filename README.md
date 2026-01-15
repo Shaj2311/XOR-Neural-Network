@@ -16,7 +16,7 @@ Here is a quick overview of the network's structure and workings:
 ## Try it out
 * Clone this project
 ```
-git clone https://github.com/Shaj2311/Basic-Neural-Network
+git clone https://github.com/Shaj2311/XOR-Neural-Network.git
 ```
 * Compile using gcc
 ```
