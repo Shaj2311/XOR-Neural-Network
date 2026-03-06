@@ -28,6 +28,22 @@ double dSigmoid(double x)
 	return sigmoid(x) * (1 - sigmoid(x));
 }
 
+void printProgressBar(double percentage)
+{
+	int width = 50;
+	int filled = (percentage / 100) * width;
+
+	printf("Progress: %.2lf%%  [", percentage);
+	for(int i = 0; i < width; i++)
+	{
+		if(i < filled)
+			printf("#");
+		else
+			printf(" ");
+	}
+	printf("]\n");
+}
+
 int main()
 {
 	srand(time(0));
@@ -168,11 +184,14 @@ int main()
 					//accumulate total loss
 					totalLoss += loss;
 				}
-				if(epoch % 250 == 0)
+				if(epoch % 125 == 0 || epoch == EPOCHS - 1)
 				{
 					printf("\033[H\033[2J");
 					printf("Training network...\n");
-					printf("Progress: %.2f%%\n", ((double)epoch / EPOCHS) * 100);
+					if(epoch == EPOCHS - 1)
+						printProgressBar(100);
+					else
+						printProgressBar(((double)epoch / EPOCHS) * 100);
 					printf("Loss: %f\n", totalLoss);
 				}
 
